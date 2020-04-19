@@ -1,0 +1,62 @@
+To install:-
+in cmd:-
+pip install labelImg
+
+To Run:-
+in cmd:-
+labelImg
+
+
+Use:-
+use Create\nRectBox to select the object its at bottom right corner
+above it select Yolo format by clicking on PascalVoc
+
+Once Labelled Save the file
+
+
+Image :
+To label image select open open from top right corner
+Do operations
+
+Video :
+in video we need to handle 4 images in 1 sec
+This could be done with use of ffmpeg through command line tool
+install ffmpeg:-
+pip install ffmpeg
+or download the file and add path
+once install goto the video directory
+to get images :-
+ffmpeg -i original.mp4 -vf fps=4 image-%d.jpeg
+on cmd line
+after getting images open labelImg
+and label all images as done before
+
+
+
+Preparing Files for training.
+
+labeled images/
+	image.jpg
+	imag.txt
+
+labeded_data.data
+	classes=No_of_classes
+	train=path to train.txt
+	test=path to test.tx
+	names=path to classes.names
+	backup=backup floder
+
+train.txt
+	path to training images 
+test.txt 
+	path to training images
+
+both the above file can be prepared directly or by using creating_train and test.py
+
+classes.names
+	bike
+	car
+
+classes and data file can be prepared directly or by using creating-files-data-name.py
+
+specify images that are converted to yolo format floder

@@ -1,0 +1,57 @@
+Visual Studio 2017 and CUDA 10.0
+
+
+To Check The installations :-
+
+To detect image :
+darknet_no_gpu.exe detector test cfg/coco.data cfg/yolov3.cfg weights/yolov3.weights data/test.jpg
+
+with a threashold value
+darknet_no_gpu.exe detector test cfg/coco.data cfg/yolov3.cfg weights/yolov3.weights -thresh 0.85 data/test.jpg
+
+To detect Video :
+darknet_no_gpu.exe detector demo cfg/coco.data cfg/yolov3.cfg weights/yolov3.weights data/test.mp4 -out_filename result.avi
+
+with a threashold value
+darknet_no_gpu.exe detector demo cfg/coco.data cfg/yolov3.cfg weights/yolov3.weights -thresh 0.85 data/test.mp4 -out_filename result.avi 
+
+To detect RealTime :
+darknet_no_gpu.exe detector demo cfg/coco.data cfg/yolov3.cfg weights/yolov3.weights -c 0
+
+with a threashold value 
+darknet_no_gpu.exe detector demo cfg/coco.data cfg/yolov3.cfg weights/yolov3.weights -thresh 0.85 -c 0
+
+
+
+Training Custom DataSet:-
+
+(i) Copy the prepared labelled.data file in previous section of custom data in darknet/x64/cfg
+
+(ii) Duplicate the yolov3.cfg in train.cfg and test.cfg
+Changes the train.cfg files as :-
+batch=64
+subdivision=16
+.
+.
+max_batches = No_of_classes*2000
+steps = 80% of max_batches,90% of max_batches
+.
+.
+change the filters and classes of output YOLO layers
+.
+.
+600. filters = (No_of_classes + 5)* 3
+607. classes =No_of_classes
+686. filters = (No_of_classes + 5)* 3
+693. classes =No_of_classes
+766. filters = (No_of_classes + 5)* 3
+780. classes =No_of_classes
+
+For test.cfg change 
+batch =1
+subdivision =1
+rest is same as train.cfg
+
+(iii) In the folder a pre defined weight is present copy it to darknet weights folder and run command
+darknet.exe detector test <data files> <cfg files> <pre_trained_weigths> -dontshow
+This will generate further weights in backup and the final weights generated is used for the detections as done before.

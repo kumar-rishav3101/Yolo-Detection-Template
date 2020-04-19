@@ -1,0 +1,4 @@
+Copy all the labelled image and downloaded image in a single folder (ONLY IMAGE)
+Runs the python codes in same order by prividing paths
+To check if every thing is correct Open labelImg through CMD and open joined folder
+If you find images being labelled already then every thing is correct

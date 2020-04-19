@@ -1,0 +1,4 @@
+Bike
+Car
+Bicycle wheel
+Bus

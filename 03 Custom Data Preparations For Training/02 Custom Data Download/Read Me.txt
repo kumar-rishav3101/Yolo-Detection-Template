@@ -1,0 +1,28 @@
+
+OIDv4 is a tool kit which is used to download large images for the training purpose
+In my Pc it is already installed in Rishav/OIDv4 go to that directory and run python main.py
+OpenImagesDataset is a website where u can see tons of images for the required dataset
+Select your class on the website
+download the class via command prompt as
+python main.py downloader --classes Car Bicycle_wheel Bus --type_csv train --multiclasses 1 --limit 9
+
+
+Once Downloaded:-
+The download folder has one class flode with csv file containing annotations and images.
+
+
+Convert Download data to Yolo Format
+The format is same as down in previous Labelling folder
+Labelling.data
+	classes
+	train
+	test
+	names
+	backup
+
+
+The annotaions in csv file is different from the required Yolo Annotations.
+To achieve the conversion use converting-annotations.py present in same folder.
+create a classes.txt file in the downloaded image folder and write classes names in each line same as done in previous section
+Once the image downloaded is converted in YOLO format then rest two python files can be used to prepare the yolo
+training file as done in previous sections
